@@ -4,7 +4,6 @@ export interface Userflow {
   updateUser: (params: IdentifyParams) => Promise<void>
   isIdentified: () => boolean
   startFlow: (flowId: string) => Promise<void>
-  endFlow: () => Promise<void>
   reset: () => void
   on(eventName: string, listener: (...args: any[]) => void): void
   off(eventName: string, listener: (...args: any[]) => void): void
