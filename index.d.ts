@@ -7,6 +7,7 @@ export interface Userflow {
   reset: () => void
   on(eventName: string, listener: (...args: any[]) => void): void
   off(eventName: string, listener: (...args: any[]) => void): void
+  setCustomInputSelector(customInputSelector: string | null): void
 }
 
 export interface IdentifyParams {
