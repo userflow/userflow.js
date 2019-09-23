@@ -1,5 +1,5 @@
 export interface Userflow {
-  init: (companyId: string) => void
+  init: (token: string) => void
   identify: (externalId: string, params: IdentifyParams) => Promise<void>
   updateUser: (params: IdentifyParams) => Promise<void>
   isIdentified: () => boolean
