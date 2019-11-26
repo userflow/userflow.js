@@ -9,6 +9,10 @@ export interface Userflow {
   on(eventName: string, listener: (...args: any[]) => void): void
   off(eventName: string, listener: (...args: any[]) => void): void
   setCustomInputSelector(customInputSelector: string | null): void
+  registerCustomInput(
+    cssSelector: string,
+    getValue?: (el: Element) => string
+  ): void
   setCustomNavigate(customNavigate: ((url: string) => void) | null): void
   setScrollPadding(scrollPadding: ScrollPadding | null): void
 }
