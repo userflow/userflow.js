@@ -42,7 +42,7 @@ export interface IdentifyParams {
   [name: string]: IdentifyParamsChangeLiteral | IdentifyParamsChange
 }
 
-type IdentifyParamsChangeLiteral = string | number | boolean | null
+type IdentifyParamsChangeLiteral = string | number | boolean | null | undefined
 
 interface IdentifyParamsChange {
   set?: IdentifyParamsChangeLiteral
