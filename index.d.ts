@@ -39,32 +39,23 @@ export interface Userflow {
 }
 
 export interface IdentifyParams {
-  name?: string | null
-  email?: string | null
-  signedUpAt?: string | null
-  traits?: IdentifyParamsTraits
+  [name: string]: IdentifyParamsChangeLiteral | IdentifyParamsChange
 }
 
-type IdentifyParamsTraits =
-  | IdentifyParamsTraitsHash
-  | IdentifyParamsTraitItem[]
-  | null
+type IdentifyParamsChangeLiteral = string | number | boolean | null
 
-interface IdentifyParamsTraitsHash {
-  [key: string]: string | boolean | number
-}
-
-interface IdentifyParamsTraitItem {
-  name: string
-  value: string | boolean | number
-  dataType?: IdentifyParamsAttributeDataType
+interface IdentifyParamsChange {
+  set?: IdentifyParamsChangeLiteral
+  set_once?: IdentifyParamsChangeLiteral
+  add?: string | number
+  subtract?: string | number
+  data_type?: IdentifyParamsAttributeDataType
 }
 
 type IdentifyParamsAttributeDataType =
   | 'string'
   | 'boolean'
-  | 'integer'
-  | 'decimal'
+  | 'number'
   | 'datetime'
 
 interface LoadUserflowOpts {
