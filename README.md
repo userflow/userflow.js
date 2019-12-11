@@ -16,12 +16,12 @@ npm install --save userflow.js
 
 ## Usage
 
-This package exposes a single function, `loadUserflow`, which will inject Studio1 asynchronously into the current page using a simple `<script>` tag. `loadUserflow` returns a promise resolving with the `userflow` object (the same one that's also available globally on `window`).
+This package exposes a single function, `loadUserflow`, which will inject Userflow.js asynchronously into the current page using a simple `<script>` tag. `loadUserflow` returns a promise resolving with the `userflow` object (the same one that's also available globally on `window`).
 
 In your app, wherever you manage the currently signed-in user's data, initialize Userflow like this:
 
 ```js
-import {loadUserflow} from 'userflow.js'
+import { loadUserflow } from 'userflow.js'
 
 const userflow = await loadUserflow()
 userflow.init('YOUR_COMPANY_ID')
