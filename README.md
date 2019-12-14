@@ -28,7 +28,7 @@ userflow.init('YOUR_COMPANY_ID')
 userflow.identify('USER_ID', {
   name: 'USER_NAME',
   email: 'USER_EMAIL',
-  signedUpAt: 'USER_SIGNED_UP_AT'
+  signed_up_at: 'USER_SIGNED_UP_AT' // ISO 8601 format
 })
 ```
 
