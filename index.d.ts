@@ -1,9 +1,13 @@
 export interface Userflow {
   init: (token: string) => void
 
-  identify: (externalId: string, params: IdentifyParams) => Promise<void>
+  identify: (externalId: string, params?: IdentifyParams) => Promise<void>
+
+  identifyAnonymous: (params?: IdentifyParams) => Promise<void>
 
   updateUser: (params: IdentifyParams) => Promise<void>
+
+  track(name: string, attributes?: EventAttributes): Promise<void>
 
   isIdentified: () => boolean
 
@@ -39,14 +43,14 @@ export interface Userflow {
 }
 
 export interface IdentifyParams {
-  [name: string]: IdentifyParamsChangeLiteral | IdentifyParamsChange
+  [name: string]: AttributeLiteral | IdentifyParamsChange
 }
 
-type IdentifyParamsChangeLiteral = string | number | boolean | null | undefined
+type AttributeLiteral = string | number | boolean | null | undefined
 
 interface IdentifyParamsChange {
-  set?: IdentifyParamsChangeLiteral
-  set_once?: IdentifyParamsChangeLiteral
+  set?: AttributeLiteral
+  set_once?: AttributeLiteral
   add?: string | number
   subtract?: string | number
   data_type?: IdentifyParamsAttributeDataType
@@ -57,6 +61,15 @@ type IdentifyParamsAttributeDataType =
   | 'boolean'
   | 'number'
   | 'datetime'
+
+export interface EventAttributes {
+  [name: string]: AttributeLiteral | EventAttributesChange
+}
+
+interface EventAttributesChange {
+  set?: AttributeLiteral
+  data_type?: IdentifyParamsAttributeDataType
+}
 
 interface LoadUserflowOpts {
   url?: string
