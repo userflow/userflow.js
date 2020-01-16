@@ -40,6 +40,10 @@ export interface Userflow {
   setInferenceClassNameFilter(filters: StringFilters): void
 
   setScrollPadding(scrollPadding: ScrollPadding | null): void
+
+  setCustomScrollIntoView(scrollIntoView: ((el: Element) => void) | null): void
+
+  prepareAudio(): void
 }
 
 export interface IdentifyParams {
