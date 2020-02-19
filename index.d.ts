@@ -1,13 +1,28 @@
 export interface Userflow {
   init: (token: string) => void
 
-  identify: (externalId: string, params?: IdentifyParams) => Promise<void>
+  identify: (userId: string, attributes?: Attributes) => Promise<void>
 
-  identifyAnonymous: (params?: IdentifyParams) => Promise<void>
+  identifyAnonymous: (attributes?: Attributes) => Promise<void>
 
-  updateUser: (params: IdentifyParams) => Promise<void>
+  updateUser: (attributes: Attributes) => Promise<void>
 
-  track(name: string, attributes?: EventAttributes): Promise<void>
+  group: (
+    groupId: string,
+    attributes?: Attributes,
+    options?: GroupOptions
+  ) => Promise<void>
+
+  updateGroup: (
+    attributes?: Attributes,
+    options?: GroupOptions
+  ) => Promise<void>
+
+  track(
+    name: string,
+    attributes?: EventAttributes,
+    options?: TrackOptions
+  ): Promise<void>
 
   isIdentified: () => boolean
 
@@ -46,33 +61,42 @@ export interface Userflow {
   prepareAudio(): void
 }
 
-export interface IdentifyParams {
-  [name: string]: AttributeLiteral | IdentifyParamsChange
+export interface Attributes {
+  [name: string]: AttributeLiteral | AttributeChange
 }
+
+/**
+ *  @deprecated Use Attributes instead.
+ */
+export type IdentifyParams = Attributes
 
 type AttributeLiteral = string | number | boolean | null | undefined
 
-interface IdentifyParamsChange {
+interface AttributeChange {
   set?: AttributeLiteral
   set_once?: AttributeLiteral
   add?: string | number
   subtract?: string | number
-  data_type?: IdentifyParamsAttributeDataType
+  data_type?: AttributeDataType
 }
 
-type IdentifyParamsAttributeDataType =
-  | 'string'
-  | 'boolean'
-  | 'number'
-  | 'datetime'
+type AttributeDataType = 'string' | 'boolean' | 'number' | 'datetime'
+
+export interface GroupOptions {
+  membership?: Attributes
+}
 
 export interface EventAttributes {
-  [name: string]: AttributeLiteral | EventAttributesChange
+  [name: string]: AttributeLiteral | EventAttributeChange
 }
 
-interface EventAttributesChange {
+interface EventAttributeChange {
   set?: AttributeLiteral
-  data_type?: IdentifyParamsAttributeDataType
+  data_type?: AttributeDataType
+}
+
+export interface TrackOptions {
+  userOnly?: boolean
 }
 
 interface LoadUserflowOpts {
