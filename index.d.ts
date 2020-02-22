@@ -1,27 +1,31 @@
 export interface Userflow {
   init: (token: string) => void
 
-  identify: (userId: string, attributes?: Attributes) => Promise<void>
+  identify: (
+    userId: string,
+    attributes?: Attributes,
+    opts?: IdentifyOptions
+  ) => Promise<void>
 
-  identifyAnonymous: (attributes?: Attributes) => Promise<void>
+  identifyAnonymous: (
+    attributes?: Attributes,
+    opts?: IdentifyOptions
+  ) => Promise<void>
 
-  updateUser: (attributes: Attributes) => Promise<void>
+  updateUser: (attributes: Attributes, opts?: IdentifyOptions) => Promise<void>
 
   group: (
     groupId: string,
     attributes?: Attributes,
-    options?: GroupOptions
+    opts?: GroupOptions
   ) => Promise<void>
 
-  updateGroup: (
-    attributes?: Attributes,
-    options?: GroupOptions
-  ) => Promise<void>
+  updateGroup: (attributes: Attributes, opts?: GroupOptions) => Promise<void>
 
   track(
     name: string,
     attributes?: EventAttributes,
-    options?: TrackOptions
+    opts?: TrackOptions
   ): Promise<void>
 
   isIdentified: () => boolean
@@ -82,7 +86,13 @@ interface AttributeChange {
 
 type AttributeDataType = 'string' | 'boolean' | 'number' | 'datetime'
 
-export interface GroupOptions {
+interface BufferedOperationOptions {
+  immediate?: boolean
+}
+
+export interface IdentifyOptions extends BufferedOperationOptions {}
+
+export interface GroupOptions extends BufferedOperationOptions {
   membership?: Attributes
 }
 
@@ -95,7 +105,7 @@ interface EventAttributeChange {
   data_type?: AttributeDataType
 }
 
-export interface TrackOptions {
+export interface TrackOptions extends BufferedOperationOptions {
   userOnly?: boolean
 }
 
