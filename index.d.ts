@@ -124,4 +124,7 @@ type StringFilter = ((className: string) => boolean) | RegExp
 
 type StringFilters = StringFilter | StringFilter[]
 
+declare let userflow: Userflow
+export default userflow
+
 export function loadUserflow(opts?: LoadUserflowOpts): Promise<Userflow>

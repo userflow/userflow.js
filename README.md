@@ -1,30 +1,25 @@
 # Userflow.js
 
-Async loader for [Userflow](https://getuserflow.com)'s Userflow.js. This is the recommended way to install Userflow.js in modern web apps that use build systems such as Webpack, Browserify, Grunt etc.
+The easiest way to install Userflow.js in modern web apps that use build systems such as Webpack, Browserify, Grunt etc.
 
-## Documentation
+Userflow.js is a script that can be loaded from our CDN at: https://js.getuserflow.com/userflow.js
 
-See the [Userflow.js API Reference](https://getuserflow.com/docs/userflow-js).
+This module exports an object that wraps all Userflow.js methods. It automatically loads the Userflow.js script into the current page when a method is called. Method calls are queued if Userflow.js is not loaded yet.
 
 ## Installation
 
-Install from npm:
-
 ```sh
-npm install --save userflow.js
+npm install userflow.js
 ```
 
 ## Usage
 
-This package exposes a single function, `loadUserflow`, which will inject Userflow.js asynchronously into the current page using a simple `<script>` tag. `loadUserflow` returns a promise resolving with the `userflow` object (the same one that's also available globally on `window`).
-
-In your app, wherever you manage the currently signed-in user's data, initialize Userflow like this:
+Simply `import userflow from 'userflow.js'` and use it. Example:
 
 ```js
-import { loadUserflow } from 'userflow.js'
+import userflow from 'userflow.js'
 
-const userflow = await loadUserflow()
-userflow.init('YOUR_COMPANY_ID')
+userflow.init('USERFLOW_TOKEN')
 userflow.identify('USER_ID', {
   name: 'USER_NAME',
   email: 'USER_EMAIL',
@@ -32,12 +27,41 @@ userflow.identify('USER_ID', {
 })
 ```
 
-You can find your company ID in Userflow under [Settings](https://getuserflow.com/app/_/settings).
+You can find your Userflow Token in Userflow under [Settings](https://getuserflow.com/app/_/settings).
 
 Check out the [installation instructions](https://getuserflow.com/docs/userflow-js-installation) for more info.
 
 Also check out the [Userflow.js API Reference](https://getuserflow.com/docs/userflow-js).
 
+## API Reference
+
+See the [Userflow.js API Reference](https://getuserflow.com/docs/userflow-js).
+
+## Importing userflow.js in multiple modules
+
+You can import `userflow` in multiple files across your app. It will always refer to the same instance. The Userflow.js script will only be loaded once.
+
+```js
+// App.js
+import userflow from 'userflow.js'
+
+userflow.init('USERFLOW_TOKEN')
+
+// UserRoute.js
+import userflow from 'userflow.js'
+
+userflow.identify(user.id, {
+  name: user.name
+})
+
+// CompanyRoute.js
+import userflow from 'userflow.js'
+
+userflow.group(company.id, {
+  name: company.name
+})
+```
+
 ## TypeScript support
 
-This package contains TypeScript definitions of the `userflow` object. `loadUserflow` returns `Promise<Userflow>`.
+This package contains TypeScript definitions of the `userflow` object.
