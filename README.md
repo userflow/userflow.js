@@ -27,7 +27,7 @@ userflow.identify('USER_ID', {
 })
 ```
 
-You can find your Userflow Token in Userflow under [Settings](https://getuserflow.com/app/_/settings).
+You can find your Userflow.js Token in Userflow under [Settings -> Environments](https://getuserflow.com/app/_/settings/environments). Note that if you have multiple environments (e.g. Production and Staging) that each environment has a unique token.
 
 Check out the [installation instructions](https://getuserflow.com/docs/userflow-js-installation) for more info.
 
