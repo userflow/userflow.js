@@ -43,7 +43,7 @@ stubDefault('isIdentified', () => false)
 
 // Helper to stub void-returning methods that should be queued
 function stubVoid(method) {
-  userflowWrapper[method] = function(...args) {
+  userflowWrapper[method] = function (...args) {
     if (userflow) {
       userflow[method].apply(userflow, args)
     } else {
@@ -55,7 +55,7 @@ function stubVoid(method) {
 
 // Helper to stub promise-returning methods that should be queued
 function stubPromise(method) {
-  userflowWrapper[method] = function(...args) {
+  userflowWrapper[method] = function (...args) {
     if (userflow) {
       return userflow[method].apply(userflow, args)
     } else {
@@ -71,7 +71,7 @@ function stubPromise(method) {
 // therefore must support using a default callback in case Userflow.js is not
 // loaded yet.
 function stubDefault(method, fallback) {
-  userflowWrapper[method] = function(...args) {
+  userflowWrapper[method] = function (...args) {
     if (userflow) {
       return userflow[method].apply(userflow, args)
     } else {
@@ -109,14 +109,14 @@ function loadUserflow(opts) {
   opts = opts || {}
   // Make sure we only load Userflow.js once
   if (!loadUserflowPromise) {
-    loadUserflowPromise = new Promise(function(resolve, reject) {
+    loadUserflowPromise = new Promise(function (resolve, reject) {
       // Load Userflow.js script
       const script = document.createElement('script')
       script.src =
         opts.url ||
         window.USERFLOWJS_URL ||
         'https://js.getuserflow.com/userflow.js'
-      script.onload = function() {
+      script.onload = function () {
         // Grab userflow object from window
         userflow = window.userflow
         if (!userflow) {
@@ -131,7 +131,7 @@ function loadUserflow(opts) {
         resolve(userflow)
         flushQueue()
       }
-      script.onerror = function() {
+      script.onerror = function () {
         loadUserflowPromise = undefined
         reject(new Error('Could not load Userflow.js'))
       }
@@ -152,4 +152,5 @@ class Deferred {
 }
 
 module.exports = userflowWrapper
+module.exports.default = userflowWrapper
 module.exports.loadUserflow = loadUserflow
