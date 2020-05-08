@@ -30,8 +30,18 @@ export interface Userflow {
 
   isIdentified: () => boolean
 
+  start: (contentId: string) => Promise<void>
+
+  /**
+   * @deprecated Use userflow.start() instead
+   */
   startFlow: (flowId: string) => Promise<void>
 
+  endAll: () => Promise<void>
+
+  /**
+   * @deprecated Use userflow.endAll() instead
+   */
   endAllFlows: () => Promise<void>
 
   reset: () => void
