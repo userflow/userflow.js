@@ -2,7 +2,6 @@
   "name": "userflow.js",
   "version": "1.5.0",
   "description": "Async loader for userflow.js",
-  "main": "index.js",
   "homepage": "https://github.com/getuserflow/userflow.js",
   "repository": {
     "type": "git",
@@ -11,5 +10,14 @@
   "bugs": "https://github.com/getuserflow/userflow.js/issues",
   "author": "Userflow <support@getuserflow.com> (https://getuserflow.com)",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "main": "dist/index.cjs.js",
+  "module": "index.js",
+  "scripts": {
+    "build": "rollup index.js --file dist/index.cjs.js --format cjs",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "rollup": "^2.8.2"
+  }
 }

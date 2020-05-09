@@ -107,7 +107,7 @@ function flushQueue() {
 
 // Both used by this module to automatically load Userflow.js, or for apps to
 // load it on demand.
-function loadUserflow(opts) {
+userflowWrapper.loadUserflow = function loadUserflow(opts) {
   opts = opts || {}
   // Make sure we only load Userflow.js once
   if (!loadUserflowPromise) {
@@ -153,5 +153,4 @@ class Deferred {
   }
 }
 
-module.exports = userflowWrapper
-module.exports.loadUserflow = loadUserflow
+export default userflowWrapper

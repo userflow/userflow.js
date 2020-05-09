@@ -63,3 +63,17 @@ userflow.group(company.id, {
 ## TypeScript support
 
 This package contains TypeScript definitions of the `userflow` object.
+
+## Developing userflow.js
+
+Install dev dependencies:
+
+```sh
+npm install
+```
+
+Build, which will produce a CommonJS variant in `dist/index.cjs.js`:
+
+```sh
+npm run build
+```
