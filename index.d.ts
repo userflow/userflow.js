@@ -99,6 +99,10 @@ interface AttributeChange {
 type AttributeDataType = 'string' | 'boolean' | 'number' | 'datetime'
 
 interface BufferedOperationOptions {
+  /**
+   * @deprecated This option no longer has any effect. All operations are sent
+   * immediately.
+   */
   immediate?: boolean
 }
 
