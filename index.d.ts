@@ -74,7 +74,10 @@ export interface Userflow {
 
   prepareAudio(): void
 
-  loadUserflow(opts?: LoadUserflowOpts): Promise<Userflow>
+  /**
+   *  @deprecated Use directly exported loadUserflow function instead.
+   */
+  loadUserflow(opts?: LoadUserflowOptions): Promise<Userflow>
 }
 
 export interface Attributes {
@@ -129,7 +132,7 @@ export interface StartOptions {
   once?: boolean
 }
 
-interface LoadUserflowOpts {
+interface LoadUserflowOptions {
   url?: string
 }
 
@@ -146,3 +149,5 @@ type StringFilters = StringFilter | StringFilter[]
 
 declare let userflow: Userflow
 export default userflow
+
+export function loadUserflow(opts?: LoadUserflowOptions): Promise<Userflow>

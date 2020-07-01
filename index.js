@@ -49,7 +49,7 @@ function stubVoid(method) {
     if (userflow) {
       userflow[method].apply(userflow, args)
     } else {
-      userflowWrapper.loadUserflow()
+      loadUserflow()
       queue.push({kind: 'void', method, args})
     }
   }
@@ -61,7 +61,7 @@ function stubPromise(method) {
     if (userflow) {
       return userflow[method].apply(userflow, args)
     } else {
-      userflowWrapper.loadUserflow()
+      loadUserflow()
       const deferred = new Deferred()
       queue.push({kind: 'promise', method, args, deferred})
       return deferred.promise
@@ -107,7 +107,7 @@ function flushQueue() {
 
 // Both used by this module to automatically load Userflow.js, or for apps to
 // load it on demand.
-userflowWrapper.loadUserflow = function loadUserflow(opts) {
+function loadUserflow(opts) {
   opts = opts || {}
   // Make sure we only load Userflow.js once
   if (!loadUserflowPromise) {
@@ -142,6 +142,7 @@ userflowWrapper.loadUserflow = function loadUserflow(opts) {
   }
   return loadUserflowPromise
 }
+userflowWrapper.loadUserflow = loadUserflow
 
 // To resolve/reject Promises later
 class Deferred {
@@ -154,3 +155,4 @@ class Deferred {
 }
 
 export default userflowWrapper
+export {loadUserflow}
