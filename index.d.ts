@@ -30,7 +30,7 @@ export interface Userflow {
 
   isIdentified: () => boolean
 
-  start: (contentId: string) => Promise<void>
+  start: (contentId: string, opts?: StartOptions) => Promise<void>
 
   /**
    * @deprecated Use userflow.start() instead
@@ -119,6 +119,10 @@ interface EventAttributeChange {
 
 export interface TrackOptions extends BufferedOperationOptions {
   userOnly?: boolean
+}
+
+export interface StartOptions {
+  once?: boolean
 }
 
 interface LoadUserflowOpts {
