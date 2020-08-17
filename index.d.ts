@@ -59,6 +59,8 @@ export interface Userflow {
 
   setCustomNavigate(customNavigate: ((url: string) => void) | null): void
 
+  setUrlFilter(urlFilter: ((url: string) => string) | null): void
+
   setInferenceAttributeNames(attributeNames: string[]): void
 
   setInferenceAttributeFilter(
