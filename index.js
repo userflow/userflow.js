@@ -27,6 +27,7 @@ stubVoid('setInferenceClassNameFilter')
 stubVoid('setScrollPadding')
 stubVoid('setCustomScrollIntoView')
 stubVoid('prepareAudio')
+stubVoid('_setTargetEnv')
 
 // Methods that return promises and should be queued
 stubPromise('identify')
