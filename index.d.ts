@@ -135,6 +135,7 @@ export interface StartOptions {
 }
 
 interface LoadUserflowOptions {
+  module?: boolean
   url?: string
 }
 
