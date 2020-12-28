@@ -135,7 +135,7 @@ export interface StartOptions {
 }
 
 interface LoadUserflowOptions {
-  module?: boolean
+  /** @deprecated Use window.USERFLOWJS_URL instead */
   url?: string
 }
 

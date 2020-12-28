@@ -116,7 +116,7 @@ function loadUserflow(opts) {
     loadUserflowPromise = new Promise(function (resolve, reject) {
       // Load Userflow.js script
       const script = document.createElement('script')
-      if (opts.module) {
+      if (window.USERFLOWJS_MODULE) {
         script.type = 'module'
       }
       script.src =
