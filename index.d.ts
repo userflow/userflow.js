@@ -32,17 +32,7 @@ export interface Userflow {
 
   start: (contentId: string, opts?: StartOptions) => Promise<void>
 
-  /**
-   * @deprecated Use userflow.start() instead
-   */
-  startFlow: (flowId: string) => Promise<void>
-
   endAll: () => Promise<void>
-
-  /**
-   * @deprecated Use userflow.endAll() instead
-   */
-  endAllFlows: () => Promise<void>
 
   reset: () => void
 
@@ -81,11 +71,6 @@ export interface Attributes {
   [name: string]: AttributeLiteral | AttributeChange
 }
 
-/**
- *  @deprecated Use Attributes instead.
- */
-export type IdentifyParams = Attributes
-
 type AttributeLiteral = string | number | boolean | null | undefined
 
 interface AttributeChange {
@@ -98,13 +83,7 @@ interface AttributeChange {
 
 type AttributeDataType = 'string' | 'boolean' | 'number' | 'datetime'
 
-interface BufferedOperationOptions {
-  /**
-   * @deprecated This option no longer has any effect. All operations are sent
-   * immediately.
-   */
-  immediate?: boolean
-}
+interface BufferedOperationOptions {}
 
 export interface IdentifyOptions extends BufferedOperationOptions {}
 
