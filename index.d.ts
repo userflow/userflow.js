@@ -129,11 +129,6 @@ export interface StartOptions {
   once?: boolean
 }
 
-interface LoadUserflowOptions {
-  /** @deprecated Use window.USERFLOWJS_URL instead */
-  url?: string
-}
-
 interface ScrollPadding {
   top?: number
   right?: number
