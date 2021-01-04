@@ -147,7 +147,6 @@ function loadUserflow(opts) {
   }
   return loadUserflowPromise
 }
-userflowWrapper.loadUserflow = loadUserflow
 
 // To resolve/reject Promises later
 class Deferred {
@@ -160,4 +159,3 @@ class Deferred {
 }
 
 export default userflowWrapper
-export {loadUserflow}

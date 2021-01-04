@@ -75,11 +75,6 @@ export interface Userflow {
   setCustomScrollIntoView(scrollIntoView: ((el: Element) => void) | null): void
 
   prepareAudio(): void
-
-  /**
-   *  @deprecated Use directly exported loadUserflow function instead.
-   */
-  loadUserflow(opts?: LoadUserflowOptions): Promise<Userflow>
 }
 
 export interface Attributes {
@@ -152,5 +147,3 @@ type StringFilters = StringFilter | StringFilter[]
 
 declare let userflow: Userflow
 export default userflow
-
-export function loadUserflow(opts?: LoadUserflowOptions): Promise<Userflow>
