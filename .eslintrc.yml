@@ -1,0 +1,19 @@
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - prettier
+  - prettier/@typescript-eslint
+parser: '@typescript-eslint/parser'
+env:
+  es6: true
+  browser: true
+parserOptions:
+  ecmaVersion: 6
+plugins:
+  - '@typescript-eslint'
+rules:
+  '@typescript-eslint/no-explicit-any': 0
+  '@typescript-eslint/no-non-null-assertion': 0
+  'no-inner-declarations': 0
+  no-console: 0
+  semi: 0

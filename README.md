@@ -2,9 +2,12 @@
 
 Simple Userflow.js installation via npm. Suitable for modern web apps that use build systems such as Webpack, Browserify, Grunt etc.
 
-Userflow.js lives on our CDN at: https://js.getuserflow.com/userflow.js
+The full Userflow.js script lives on our CDN at:
 
-This module exports an object that wraps all Userflow.js methods. The Userflow.js script is automatically injected into the current page when a method is called. Method calls are queued if Userflow.js is not loaded yet.
+- Modern ES2020 browsers: https://js.getuserflow.com/es2020/userflow.js
+- Legacy browsers: https://js.getuserflow.com/userflow.js
+
+This module exports the `userflow` object, which supports all of Userflow.js' methods. The Userflow.js script is automatically injected into the current page when a method is called. Method calls are queued if Userflow.js is not loaded yet.
 
 ## Installation
 
@@ -29,15 +32,15 @@ userflow.identify('USER_ID', {
 
 You can find your Userflow.js Token in Userflow under [Settings -> Environments](https://getuserflow.com/app/_/settings/environments). Note that if you have multiple environments (e.g. Production and Staging) that each environment has a unique token.
 
-Check out the [installation instructions](https://getuserflow.com/docs/userflow-js-installation) for more info.
+Check out the [installation instructions](https://getuserflow.com/docs/dev/userflow-js-installation) for more info.
 
 ## API Reference
 
 See the [Userflow.js API Reference](https://getuserflow.com/docs/userflow-js).
 
-## Importing userflow.js in multiple modules
+## Importing userflow.js from multiple modules
 
-You can import `userflow` in multiple files in your app. It will always refer to the same instance. The Userflow.js script will only be loaded once.
+You can import `userflow` from multiple files in your app. It will always refer to the same instance. The Userflow.js script will only be loaded once.
 
 ```js
 // App.js
@@ -72,8 +75,15 @@ Install dev dependencies:
 npm install
 ```
 
-Build, which will produce a CommonJS variant in `dist/index.cjs.js`:
+To build, run:
 
 ```sh
 npm run build
 ```
+
+This will produce:
+
+- `dist/userflow.es.js`: Bundlers supporting ES modules can use this.
+- `dist/userflow.umd.js`: UMD build for bundlers that do not support ESmodules.
+- Source maps for the above.
+- `dist/userflow.snippet.js`: A minified script snippet that can be used by apps not using bundlers, or wanting to inject the code directly in a `<script>`.

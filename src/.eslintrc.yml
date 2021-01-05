@@ -1,0 +1,9 @@
+extends:
+  - ../.eslintrc.yml
+  - plugin:es5/no-es2015
+plugins:
+  - es5
+rules:
+  es5/no-modules: 0
+  no-var: 0
+  prefer-rest-params: 0
