@@ -14,7 +14,7 @@ const config = {
     },
     {file: pkg.module, format: 'es', sourcemap: true},
     {
-      file: 'dist/userflow.snippet.js',
+      file: 'dist/userflow.snippet.min.js',
       format: 'iife',
       strict: false,
       plugins: [terser()]
