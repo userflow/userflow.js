@@ -213,7 +213,8 @@ if (!userflow) {
     // Detect if the browser supports es2020
     var envVars = w.USERFLOWJS_ENV_VARS || {}
     var browserTarget =
-      envVars.BROWSER_TARGET || detectBrowserTarget(navigator.userAgent)
+      envVars.USERFLOWJS_BROWSER_TARGET ||
+      detectBrowserTarget(navigator.userAgent)
     if (browserTarget === 'es2020') {
       script.type = 'module'
       script.src =
