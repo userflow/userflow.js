@@ -222,7 +222,7 @@ if (!userflow) {
     } else {
       script.src =
         envVars.USERFLOWJS_LEGACY_URL ||
-        'https://js.getuserflow.com/userflow.js'
+        'https://js.getuserflow.com/legacy/userflow.js'
     }
     script.onerror = function () {
       userflowLoaded = false
