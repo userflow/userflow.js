@@ -4,8 +4,8 @@ Simple Userflow.js installation via npm. Suitable for modern web apps that use b
 
 The full Userflow.js script lives on our CDN at:
 
-- Modern ES2020 browsers: https://js.getuserflow.com/es2020/userflow.js
-- Legacy browsers: https://js.getuserflow.com/legacy/userflow.js
+- Modern ES2020 browsers: https://js-next.userflow.com/es2020/userflow.js
+- Legacy browsers: https://js-next.userflow.com/legacy/userflow.js
 
 This module exports the `userflow` object, which supports all of Userflow.js' methods. The Userflow.js script is automatically injected into the current page when a method is called. Method calls are queued if Userflow.js is not loaded yet.
 
