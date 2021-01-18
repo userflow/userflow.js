@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - Now only using ES5 syntax (enforced via ESLint rules) to possibly support IE11 without transpilation one day.
+- BREAKING CHANGE: The scripts are now loaded from `js.userflow.com` instead of `js.getuserflow.com`, which means your app's Content Security header may need an update. [Please consult our CSP guide](https://getuserflow.com/docs/dev/csp).
 
 ### Removed
 
