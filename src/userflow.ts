@@ -218,11 +218,11 @@ if (!userflow) {
       script.type = 'module'
       script.src =
         envVars.USERFLOWJS_ES2020_URL ||
-        'https://js-next.userflow.com/es2020/userflow.js'
+        'https://js.userflow.com/es2020/userflow.js'
     } else {
       script.src =
         envVars.USERFLOWJS_LEGACY_URL ||
-        'https://js-next.userflow.com/legacy/userflow.js'
+        'https://js.userflow.com/legacy/userflow.js'
     }
     script.onerror = function () {
       userflowLoaded = false
