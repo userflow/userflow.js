@@ -48,9 +48,28 @@ export interface Userflow {
 
   start: (contentId: string, opts?: StartOptions) => Promise<void>
 
+  /**
+   * @deprecated Use `start` instead
+   */
+  startFlow: (contentId: string, opts?: StartOptions) => Promise<void>
+
+  /**
+   * @deprecated Use `start` instead
+   */
+  startWalk: (contentId: string, opts?: StartOptions) => Promise<void>
+
   endAll: () => Promise<void>
 
+  /**
+   * @deprecated Use `endAll` instead
+   */
+  endAllFlows: () => Promise<void>
+
+  endChecklist: () => Promise<void>
+
   reset: () => void
+
+  remount: () => void
 
   // eslint-disable-next-line es5/no-rest-parameters
   on(eventName: string, listener: (...args: any[]) => void): void
@@ -85,6 +104,8 @@ export interface Userflow {
   prepareAudio(): void
 
   _setTargetEnv(targetEnv: unknown): void
+
+  setShadowDomEnabled(shadowDomEnabled: boolean): void
 }
 
 // Helper types for userflow.js API
@@ -233,31 +254,36 @@ if (!userflow) {
   }
 
   // Methods that return void and should be queued
+  stubVoid('_setTargetEnv')
   stubVoid('init')
-  stubVoid('reset')
-  stubVoid('on')
   stubVoid('off')
-  stubVoid('setCustomInputSelector')
+  stubVoid('on')
+  stubVoid('prepareAudio')
   stubVoid('registerCustomInput')
+  stubVoid('remount')
+  stubVoid('reset')
+  stubVoid('setCustomInputSelector')
   stubVoid('setCustomNavigate')
-  stubVoid('setUrlFilter')
-  stubVoid('setInferenceAttributeNames')
+  stubVoid('setCustomScrollIntoView')
   stubVoid('setInferenceAttributeFilter')
+  stubVoid('setInferenceAttributeNames')
   stubVoid('setInferenceClassNameFilter')
   stubVoid('setScrollPadding')
-  stubVoid('setCustomScrollIntoView')
-  stubVoid('prepareAudio')
-  stubVoid('_setTargetEnv')
+  stubVoid('setShadowDomEnabled')
+  stubVoid('setUrlFilter')
 
   // Methods that return promises and should be queued
+  stubPromise('endAll')
+  stubPromise('endAllFlows') // deprecated
+  stubPromise('endChecklist')
+  stubPromise('group')
   stubPromise('identify')
   stubPromise('identifyAnonymous')
-  stubPromise('updateUser')
-  stubPromise('group')
-  stubPromise('updateGroup')
+  stubPromise('startFlow') // deprecated
+  stubPromise('startWalk') // deprecated
   stubPromise('track')
-  stubPromise('start')
-  stubPromise('endAll')
+  stubPromise('updateGroup')
+  stubPromise('updateUser')
 
   // Methods that synchronously return and can be stubbed with default return
   // values and are not queued
