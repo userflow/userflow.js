@@ -86,4 +86,4 @@ This will produce:
 - `dist/userflow.es.js`: Bundlers supporting ES modules can use this.
 - `dist/userflow.umd.js`: UMD build for bundlers that do not support ESmodules.
 - Source maps for the above.
-- `dist/userflow.snippet.js`: A minified script snippet that can be used by apps not using bundlers, or wanting to inject the code directly in a `<script>`.
+- `dist/userflow.snippet.min.js`: A minified script snippet that can be used by apps not using bundlers, or wanting to inject the code directly in a `<script>`.

@@ -148,6 +148,9 @@ interface Deferred {
 var w: WindowWithUserflow = window
 var userflow = w.userflow
 if (!userflow) {
+  //
+  var urlPrefix = 'https://js.userflow.com/'
+
   // Initialize as an empty object (methods will be stubbed below)
   userflow = w.userflow = {
     _stubbed: true
@@ -217,12 +220,10 @@ if (!userflow) {
     if (browserTarget === 'es2020') {
       script.type = 'module'
       script.src =
-        envVars.USERFLOWJS_ES2020_URL ||
-        'https://js.userflow.com/es2020/userflow.js'
+        envVars.USERFLOWJS_ES2020_URL || urlPrefix + 'es2020/userflow.js'
     } else {
       script.src =
-        envVars.USERFLOWJS_LEGACY_URL ||
-        'https://js.userflow.com/legacy/userflow.js'
+        envVars.USERFLOWJS_LEGACY_URL || urlPrefix + 'legacy/userflow.js'
     }
     script.onerror = function () {
       userflowLoaded = false
