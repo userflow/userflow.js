@@ -8,7 +8,7 @@
     "url": "git://github.com/userflow/userflow.js.git"
   },
   "bugs": "https://github.com/userflow/userflow.js/issues",
-  "author": "Userflow <support@getuserflow.com> (https://getuserflow.com)",
+  "author": "Userflow <support@userflow.com> (https://userflow.com)",
   "license": "MIT",
   "private": false,
   "main": "dist/userflow.umd.js",
