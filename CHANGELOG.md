@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.1.0]
+
+### Added
+
+- Added some missing stubbed missing implementations so they can be used before proper Userflow.js is loaded from CDN.
+
+## [v2.0.0]
+
 ### Added
 
 - `module` build in ESM format.
@@ -24,4 +32,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Deprecated `IdentifyParams` type was removed. Use `Attributes` instead.
 - Deprecated `immediate: boolean` option was removed - no longer relevant.
 
-[unreleased]: https://github.com/userflow/userflow.js/compare/v1.8.0...HEAD
+[unreleased]: https://github.com/userflow/userflow.js/compare/v2.1.0...HEAD
+[v2.1.0]: https://github.com/userflow/userflow.js/compare/v2.0.0...v2.1.0
+[v2.0.0]: https://github.com/userflow/userflow.js/compare/v1.8.0...v2.0.0
