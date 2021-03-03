@@ -166,7 +166,9 @@ interface Deferred {
 
 // If window.userflow has not been initalized yet, then stub all its methods, so
 // it can be used immediately, and load the Userflow.js script from CDN.
-var w: WindowWithUserflow = window
+// Support importing userflow.js with server-side rendering by attaching to an
+// empty object instead of `window`.
+var w: WindowWithUserflow = typeof window === 'undefined' ? ({} as any) : window
 var userflow = w.userflow
 if (!userflow) {
   //
