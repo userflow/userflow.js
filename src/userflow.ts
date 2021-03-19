@@ -185,7 +185,7 @@ if (!userflow) {
   /**
    * Helper to stub void-returning methods that should be queued
    */
-  function stubVoid(
+  var stubVoid = function (
     // eslint-disable-next-line es5/no-rest-parameters
     method: ConditionalKeys<Userflow, (...args: any[]) => void>
   ) {
@@ -197,7 +197,7 @@ if (!userflow) {
   }
 
   // Helper to stub promise-returning methods that should be queued
-  function stubPromise(
+  var stubPromise = function (
     // eslint-disable-next-line es5/no-rest-parameters
     method: ConditionalKeys<Userflow, (...args: any[]) => Promise<void>>
   ) {
@@ -216,7 +216,7 @@ if (!userflow) {
   // Helper to stub methods that MUST return a value synchronously, and
   // therefore must support using a default callback until Userflow.js is
   // loaded.
-  function stubDefault(
+  var stubDefault = function (
     method: ConditionalKeys<Userflow, () => any>,
     returnValue: any
   ) {
@@ -227,7 +227,7 @@ if (!userflow) {
 
   // Helper to inject the proper Userflow.js script/module into the document
   var userflowLoaded = false
-  function loadUserflow(): void {
+  var loadUserflow = function (): void {
     // Make sure we only load Userflow.js once
     if (userflowLoaded) {
       return
