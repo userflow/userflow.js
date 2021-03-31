@@ -281,6 +281,7 @@ if (!userflow) {
   stubPromise('group')
   stubPromise('identify')
   stubPromise('identifyAnonymous')
+  stubPromise('start')
   stubPromise('startFlow') // deprecated
   stubPromise('startWalk') // deprecated
   stubPromise('track')
