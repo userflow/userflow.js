@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.2.0]
+
 ### Added
 
 - Added typings for `signature` option in `userflow.identify()` and `userflow.group()` (for use with upcoming identity verification).
@@ -48,7 +50,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Deprecated `IdentifyParams` type was removed. Use `Attributes` instead.
 - Deprecated `immediate: boolean` option was removed - no longer relevant.
 
-[unreleased]: https://github.com/userflow/userflow.js/compare/v2.1.2...HEAD
+[unreleased]: https://github.com/userflow/userflow.js/compare/v2.2.0...HEAD
+[v2.1.2]: https://github.com/userflow/userflow.js/compare/v2.1.2...v2.2.0
 [v2.1.2]: https://github.com/userflow/userflow.js/compare/v2.1.1...v2.1.2
 [v2.1.1]: https://github.com/userflow/userflow.js/compare/v2.1.0...v2.1.1
 [v2.1.0]: https://github.com/userflow/userflow.js/compare/v2.0.0...v2.1.0
