@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Added typings for `signature` option in `userflow.identify()` and `userflow.group()` (for use with upcoming identity verification).
+
 ## [v2.1.2]
 
 ### Fixed

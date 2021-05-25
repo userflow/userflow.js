@@ -125,9 +125,12 @@ interface AttributeChange {
 
 type AttributeDataType = 'string' | 'boolean' | 'number' | 'datetime'
 
-export type IdentifyOptions = Record<string, never>
+export type IdentifyOptions = {
+  signature?: string
+}
 
 export interface GroupOptions {
+  signature?: string
   membership?: Attributes
 }
 
