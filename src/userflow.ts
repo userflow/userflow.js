@@ -67,6 +67,16 @@ export interface Userflow {
 
   endChecklist: () => Promise<void>
 
+  openResourceCenter: () => void
+
+  closeResourceCenter: () => void
+
+  toggleResourceCenter: () => void
+
+  setResourceCenterLauncherHidden: (hidden: boolean) => void
+
+  getResourceCenterState: () => ResourceCenterState | null
+
   reset: () => void
 
   remount: () => void
@@ -149,6 +159,12 @@ export interface TrackOptions {
 
 export interface StartOptions {
   once?: boolean
+}
+
+export interface ResourceCenterState {
+  isOpen: boolean
+  hasChecklist: boolean
+  uncompletedChecklistTaskCount: number
 }
 
 interface ScrollPadding {
@@ -260,6 +276,7 @@ if (!userflow) {
 
   // Methods that return void and should be queued
   stubVoid('_setTargetEnv')
+  stubVoid('closeResourceCenter')
   stubVoid('init')
   stubVoid('off')
   stubVoid('on')
@@ -273,9 +290,12 @@ if (!userflow) {
   stubVoid('setInferenceAttributeFilter')
   stubVoid('setInferenceAttributeNames')
   stubVoid('setInferenceClassNameFilter')
+  stubVoid('setResourceCenterLauncherHidden')
   stubVoid('setScrollPadding')
   stubVoid('setShadowDomEnabled')
   stubVoid('setUrlFilter')
+  stubVoid('openResourceCenter')
+  stubVoid('toggleResourceCenter')
 
   // Methods that return promises and should be queued
   stubPromise('endAll')
@@ -293,6 +313,7 @@ if (!userflow) {
 
   // Methods that synchronously return and can be stubbed with default return
   // values and are not queued
+  stubDefault('getResourceCenterState', null)
   stubDefault('isIdentified', false)
 }
 

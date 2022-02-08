@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.3.0]
+
+### Added
+
+- Added stubs of new resource center related methods: `userflow.openResourceCenter()`, `userflow.closeResourceCenter()`, `userflow.toggleResourceCenter()`, `userflow.setResourceCenterLauncherHidden()`, `userflow.getResourceCenterState()`. [See Userflow.js docs](https://userflow.com/docs/userflow-js#resource-center)
+
 ## [v2.2.0]
 
 ### Added
@@ -50,8 +56,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Deprecated `IdentifyParams` type was removed. Use `Attributes` instead.
 - Deprecated `immediate: boolean` option was removed - no longer relevant.
 
-[unreleased]: https://github.com/userflow/userflow.js/compare/v2.2.0...HEAD
-[v2.1.2]: https://github.com/userflow/userflow.js/compare/v2.1.2...v2.2.0
+[unreleased]: https://github.com/userflow/userflow.js/compare/v2.3.0...HEAD
+[v2.3.0]: https://github.com/userflow/userflow.js/compare/v2.2.0...v2.3.0
+[v2.2.0]: https://github.com/userflow/userflow.js/compare/v2.1.2...v2.2.0
 [v2.1.2]: https://github.com/userflow/userflow.js/compare/v2.1.1...v2.1.2
 [v2.1.1]: https://github.com/userflow/userflow.js/compare/v2.1.0...v2.1.1
 [v2.1.0]: https://github.com/userflow/userflow.js/compare/v2.0.0...v2.1.0
