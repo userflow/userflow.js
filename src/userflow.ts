@@ -116,6 +116,8 @@ export interface Userflow {
   _setTargetEnv(targetEnv: unknown): void
 
   setShadowDomEnabled(shadowDomEnabled: boolean): void
+
+  setPageTrackingDisabled(pageTrackingDisabled: boolean): void
 }
 
 // Helper types for userflow.js API
@@ -293,6 +295,7 @@ if (!userflow) {
   stubVoid('setResourceCenterLauncherHidden')
   stubVoid('setScrollPadding')
   stubVoid('setShadowDomEnabled')
+  stubVoid('setPageTrackingDisabled')
   stubVoid('setUrlFilter')
   stubVoid('openResourceCenter')
   stubVoid('toggleResourceCenter')
