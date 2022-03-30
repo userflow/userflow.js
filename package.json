@@ -1,6 +1,6 @@
 {
   "name": "userflow.js",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Async loader for userflow.js",
   "homepage": "https://github.com/userflow/userflow.js",
   "repository": {
