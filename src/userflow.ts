@@ -122,20 +122,24 @@ export interface Userflow {
 
 // Helper types for userflow.js API
 export interface Attributes {
-  [name: string]: AttributeLiteral | AttributeChange
+  [name: string]: AttributeLiteralOrList | AttributeChange
 }
 
 type AttributeLiteral = string | number | boolean | null | undefined
+type AttributeLiteralOrList = AttributeLiteral | AttributeLiteral[]
 
 interface AttributeChange {
-  set?: AttributeLiteral
-  set_once?: AttributeLiteral
+  set?: AttributeLiteralOrList
+  set_once?: AttributeLiteralOrList
   add?: string | number
   subtract?: string | number
+  append?: AttributeLiteralOrList
+  prepend?: AttributeLiteralOrList
+  remove?: AttributeLiteralOrList
   data_type?: AttributeDataType
 }
 
-type AttributeDataType = 'string' | 'boolean' | 'number' | 'datetime'
+type AttributeDataType = 'string' | 'boolean' | 'number' | 'datetime' | 'list'
 
 export type IdentifyOptions = {
   signature?: string
