@@ -15,6 +15,8 @@ interface WindowWithUserflow extends Window {
 export interface Userflow {
   _stubbed: boolean
 
+  load: () => Promise<void>
+
   init: (token: string) => void
 
   identify: (
@@ -200,8 +202,44 @@ if (!userflow) {
   var urlPrefix = 'https://js.userflow.com/'
 
   // Initialize as an empty object (methods will be stubbed below)
+  var loadPromise: Promise<void> | null = null
   userflow = w.userflow = {
-    _stubbed: true
+    _stubbed: true,
+    // Helper to inject the proper Userflow.js script/module into the document
+    load: function (): Promise<void> {
+      // Make sure we only load Userflow.js once
+      if (!loadPromise) {
+        loadPromise = new Promise(function (resolve, reject) {
+          var script = document.createElement('script')
+          script.async = true
+          // Detect if the browser supports es2020
+          var envVars = w.USERFLOWJS_ENV_VARS || {}
+          var browserTarget =
+            envVars.USERFLOWJS_BROWSER_TARGET ||
+            detectBrowserTarget(navigator.userAgent)
+          if (browserTarget === 'es2020') {
+            script.type = 'module'
+            script.src =
+              envVars.USERFLOWJS_ES2020_URL || urlPrefix + 'es2020/userflow.js'
+          } else {
+            script.src =
+              envVars.USERFLOWJS_LEGACY_URL || urlPrefix + 'legacy/userflow.js'
+          }
+          script.onload = function () {
+            resolve()
+          }
+          script.onerror = function () {
+            document.head.removeChild(script)
+            loadPromise = null
+            var e = new Error('Could not load Userflow.js')
+            console.error(e.message)
+            reject(e)
+          }
+          document.head.appendChild(script)
+        })
+      }
+      return loadPromise
+    }
   } as Userflow
 
   // Initialize the queue, which will be flushed by Userflow.js when it loads
@@ -216,7 +254,7 @@ if (!userflow) {
   ) {
     userflow![method] = function () {
       var args = Array.prototype.slice.call(arguments)
-      loadUserflow()
+      userflow!.load()
       q.push([method, null, args])
     } as any
   }
@@ -228,7 +266,7 @@ if (!userflow) {
   ) {
     userflow![method] = function () {
       var args = Array.prototype.slice.call(arguments)
-      loadUserflow()
+      userflow!.load()
       var deferred: Deferred
       var promise = new Promise<void>(function (resolve, reject) {
         deferred = {resolve: resolve, reject: reject}
@@ -248,36 +286,6 @@ if (!userflow) {
     userflow![method] = function () {
       return returnValue
     }
-  }
-
-  // Helper to inject the proper Userflow.js script/module into the document
-  var userflowLoaded = false
-  var loadUserflow = function (): void {
-    // Make sure we only load Userflow.js once
-    if (userflowLoaded) {
-      return
-    }
-    userflowLoaded = true
-    var script = document.createElement('script')
-    script.async = true
-    // Detect if the browser supports es2020
-    var envVars = w.USERFLOWJS_ENV_VARS || {}
-    var browserTarget =
-      envVars.USERFLOWJS_BROWSER_TARGET ||
-      detectBrowserTarget(navigator.userAgent)
-    if (browserTarget === 'es2020') {
-      script.type = 'module'
-      script.src =
-        envVars.USERFLOWJS_ES2020_URL || urlPrefix + 'es2020/userflow.js'
-    } else {
-      script.src =
-        envVars.USERFLOWJS_LEGACY_URL || urlPrefix + 'legacy/userflow.js'
-    }
-    script.onerror = function () {
-      userflowLoaded = false
-      console.error('Could not load Userflow.js')
-    }
-    document.head.appendChild(script)
   }
 
   // Methods that return void and should be queued

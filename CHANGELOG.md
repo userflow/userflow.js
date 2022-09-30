@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Added `userflow.load()`, which returns a `Promise` that resolves once the full Userflow.js has been loaded from our CDN, or rejects if it fails.
+
 ## [v2.5.0]
 
 ### Added
