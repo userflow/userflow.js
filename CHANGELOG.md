@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.5.0]
+
+### Added
+
+- Added types for new list data type and append/prepend/remove list operations
+
+## [v2.4.0]
+
+### Added
+
+- Added userflow.setPageTrackingDisabled() to turn off auto tracking of page_viewed events
+
 ## [v2.3.0]
 
 ### Added
@@ -56,7 +68,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Deprecated `IdentifyParams` type was removed. Use `Attributes` instead.
 - Deprecated `immediate: boolean` option was removed - no longer relevant.
 
-[unreleased]: https://github.com/userflow/userflow.js/compare/v2.3.0...HEAD
+[unreleased]: https://github.com/userflow/userflow.js/compare/v2.5.0...HEAD
+[v2.5.0]: https://github.com/userflow/userflow.js/compare/v2.4.0...v2.5.0
+[v2.4.0]: https://github.com/userflow/userflow.js/compare/v2.3.0...v2.4.0
 [v2.3.0]: https://github.com/userflow/userflow.js/compare/v2.2.0...v2.3.0
 [v2.2.0]: https://github.com/userflow/userflow.js/compare/v2.1.2...v2.2.0
 [v2.1.2]: https://github.com/userflow/userflow.js/compare/v2.1.1...v2.1.2
