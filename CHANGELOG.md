@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.7.0]
+
 ### Added
 
 - Added `userflow.setBaseZIndex()` to override Userflow's default base z-index of `1234500`.
@@ -78,8 +80,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Deprecated `IdentifyParams` type was removed. Use `Attributes` instead.
 - Deprecated `immediate: boolean` option was removed - no longer relevant.
 
-[unreleased]: https://github.com/userflow/userflow.js/compare/v2.6.0...HEAD
-[v2.6.0]: https://github.com/userflow/userflow.js/compare/v2.6.0...v2.6.0
+[unreleased]: https://github.com/userflow/userflow.js/compare/v2.7.0...HEAD
+[v2.7.0]: https://github.com/userflow/userflow.js/compare/v2.6.0...v2.7.0
+[v2.6.0]: https://github.com/userflow/userflow.js/compare/v2.5.0...v2.6.0
 [v2.5.0]: https://github.com/userflow/userflow.js/compare/v2.4.0...v2.5.0
 [v2.4.0]: https://github.com/userflow/userflow.js/compare/v2.3.0...v2.4.0
 [v2.3.0]: https://github.com/userflow/userflow.js/compare/v2.2.0...v2.3.0
