@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Added `userflow.setBaseZIndex()` to override Userflow's default base z-index of `1234500`.
+
 ## [v2.6.0]
 
 ### Added
@@ -22,7 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Added userflow.setPageTrackingDisabled() to turn off auto tracking of page_viewed events
+- Added `userflow.setPageTrackingDisabled()` to turn off auto tracking of page_viewed events
 
 ## [v2.3.0]
 

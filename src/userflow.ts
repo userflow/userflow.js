@@ -120,6 +120,8 @@ export interface Userflow {
   setShadowDomEnabled(shadowDomEnabled: boolean): void
 
   setPageTrackingDisabled(pageTrackingDisabled: boolean): void
+
+  setBaseZIndex(baseZIndex: number): void
 }
 
 // Helper types for userflow.js API
@@ -298,6 +300,7 @@ if (!userflow) {
   stubVoid('registerCustomInput')
   stubVoid('remount')
   stubVoid('reset')
+  stubVoid('setBaseZIndex')
   stubVoid('setCustomInputSelector')
   stubVoid('setCustomNavigate')
   stubVoid('setCustomScrollIntoView')
