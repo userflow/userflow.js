@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.8.0]
+
 ### Fixed
 
 - Detect Chrome iOS (starting a little arbitrarily at v100) as es2020 compatible (instead of serving it the legacy bundle).
@@ -84,7 +86,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Deprecated `IdentifyParams` type was removed. Use `Attributes` instead.
 - Deprecated `immediate: boolean` option was removed - no longer relevant.
 
-[unreleased]: https://github.com/userflow/userflow.js/compare/v2.7.0...HEAD
+[unreleased]: https://github.com/userflow/userflow.js/compare/v2.8.0...HEAD
+[v2.8.0]: https://github.com/userflow/userflow.js/compare/v2.7.0...v2.8.0
 [v2.7.0]: https://github.com/userflow/userflow.js/compare/v2.6.0...v2.7.0
 [v2.6.0]: https://github.com/userflow/userflow.js/compare/v2.5.0...v2.6.0
 [v2.5.0]: https://github.com/userflow/userflow.js/compare/v2.4.0...v2.5.0
