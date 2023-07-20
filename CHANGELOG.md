@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Fixed
+
+- Detect Chrome iOS (starting a little arbitrarily at v100) as es2020 compatible (instead of serving it the legacy bundle).
+
 ## [v2.7.0]
 
 ### Added

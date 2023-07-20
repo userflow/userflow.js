@@ -28,6 +28,14 @@ test('chrome es2020', () => {
   ).toBe('es2020')
 })
 
+test('chrome for iOS es2020', () => {
+  expect(
+    detectBrowserTarget(
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/112.0.5615.167 Mobile/15E148 Safari/604.1'
+    )
+  ).toBe('es2020')
+})
+
 test('safari legacy', () => {
   expect(
     detectBrowserTarget(
@@ -52,6 +60,12 @@ test('safari es2020', () => {
   expect(
     detectBrowserTarget(
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15'
+    )
+  ).toBe('es2020')
+
+  expect(
+    detectBrowserTarget(
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1'
     )
   ).toBe('es2020')
 })

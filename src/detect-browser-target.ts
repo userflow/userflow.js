@@ -29,6 +29,12 @@ export function detectBrowserTarget(agent: string): BrowserTarget {
     [/OPR\//, /OPR\/(\d+)/, 67],
     // Chrome. Can contain "Safari", so must come before Safari.
     [/Chrome\//, /Chrome\/(\d+)/, 80],
+    // Chrome on iOS. Can contain "Safari", so must come before Safari.
+    // I'm not sure exactly what the engine driving Chrome iOS is, but assuming
+    // it's based on iOS Safari, which hit v14 (that's es2020 compatible) on
+    // September 16, 2020, and CriOS apparently hit v100 in April 11, 2022, we
+    // just go with 100.
+    [/CriOS\//, /CriOS\/(\d+)/, 100],
     // Safari
     [/Safari\//, /Version\/(\d+)/, 14],
     // Firefox
