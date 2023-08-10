@@ -122,6 +122,8 @@ export interface Userflow {
   setPageTrackingDisabled(pageTrackingDisabled: boolean): void
 
   setBaseZIndex(baseZIndex: number): void
+
+  setServerEndpoint(serverEndpoint: string | null | undefined): void
 }
 
 // Helper types for userflow.js API
@@ -309,6 +311,7 @@ if (!userflow) {
   stubVoid('setInferenceClassNameFilter')
   stubVoid('setResourceCenterLauncherHidden')
   stubVoid('setScrollPadding')
+  stubVoid('setServerEndpoint')
   stubVoid('setShadowDomEnabled')
   stubVoid('setPageTrackingDisabled')
   stubVoid('setUrlFilter')

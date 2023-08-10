@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Added `userflow.setServerEndpoint()` to override which server Userflow.js should connect to. For advanced use with self-hosted proxy.
+
 ## [v2.8.0]
 
 ### Fixed
