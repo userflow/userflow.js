@@ -124,6 +124,8 @@ export interface Userflow {
   setBaseZIndex(baseZIndex: number): void
 
   setServerEndpoint(serverEndpoint: string | null | undefined): void
+
+  disableEvalJs(): void
 }
 
 // Helper types for userflow.js API
@@ -295,6 +297,7 @@ if (!userflow) {
   // Methods that return void and should be queued
   stubVoid('_setTargetEnv')
   stubVoid('closeResourceCenter')
+  stubVoid('disableEvalJs')
   stubVoid('init')
   stubVoid('off')
   stubVoid('on')
