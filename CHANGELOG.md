@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.10.0]
+
 - Added `userflow.disableEvalJs()` to block all "Evaluate Javascript" actions from running.
 
 ## [v2.9.0]
@@ -94,8 +96,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Deprecated `IdentifyParams` type was removed. Use `Attributes` instead.
 - Deprecated `immediate: boolean` option was removed - no longer relevant.
 
-[unreleased]: https://github.com/userflow/userflow.js/compare/v2.9.0...HEAD
-[v2.8.0]: https://github.com/userflow/userflow.js/compare/v2.8.0...v2.9.0
+[unreleased]: https://github.com/userflow/userflow.js/compare/v2.10.0...HEAD
+[v2.10.0]: https://github.com/userflow/userflow.js/compare/v2.9.0...v2.10.0
+[v2.9.0]: https://github.com/userflow/userflow.js/compare/v2.8.0...v2.9.0
 [v2.8.0]: https://github.com/userflow/userflow.js/compare/v2.7.0...v2.8.0
 [v2.7.0]: https://github.com/userflow/userflow.js/compare/v2.6.0...v2.7.0
 [v2.6.0]: https://github.com/userflow/userflow.js/compare/v2.5.0...v2.6.0
