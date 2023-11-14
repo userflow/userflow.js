@@ -179,6 +179,7 @@ export interface ResourceCenterState {
   isOpen: boolean
   hasChecklist: boolean
   uncompletedChecklistTaskCount: number
+  unreadAnnouncementCount: number
 }
 
 interface ScrollPadding {
