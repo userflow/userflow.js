@@ -100,6 +100,8 @@ export interface Userflow {
 
   setUrlFilter(urlFilter: ((url: string) => string) | null): void
 
+  setLinkUrlDecorator(linkUrlDecorator: ((url: string) => string) | null): void
+
   setInferenceAttributeNames(attributeNames: string[]): void
 
   setInferenceAttributeFilter(
@@ -319,6 +321,7 @@ if (!userflow) {
   stubVoid('setShadowDomEnabled')
   stubVoid('setPageTrackingDisabled')
   stubVoid('setUrlFilter')
+  stubVoid('setLinkUrlDecorator')
   stubVoid('openResourceCenter')
   stubVoid('toggleResourceCenter')
 

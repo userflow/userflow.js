@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+- Added `userflow.setLinkUrlDecorator()` method to override how Userflow.js displays links to e.g. your knowledge base. [See Userflow.js docs](https://userflow.com/docs/userflow-js#setlinkurldecorator)
+
 ## [v2.11.0]
 
 - Added `unreadAnnouncementCount` field to `ResourceCenterState` object, which represents the number of unread announcements.
