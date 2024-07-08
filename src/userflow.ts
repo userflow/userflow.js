@@ -241,7 +241,7 @@ if (!userflow) {
             document.head.removeChild(script)
             loadPromise = null
             var e = new Error('Could not load Userflow.js')
-            console.error(e.message)
+            console.warn(e.message)
             reject(e)
           }
           document.head.appendChild(script)
