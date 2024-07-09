@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.12.1]
+    Demote log level from error to warn
+
 ## [v2.12.0]
 
 - Added `userflow.setLinkUrlDecorator()` method to override how Userflow.js displays links to e.g. your knowledge base. [See Userflow.js docs](https://userflow.com/docs/userflow-js#setlinkurldecorator)
@@ -104,7 +107,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Deprecated `IdentifyParams` type was removed. Use `Attributes` instead.
 - Deprecated `immediate: boolean` option was removed - no longer relevant.
 
-[unreleased]: https://github.com/userflow/userflow.js/compare/v2.12.0...HEAD
+[unreleased]: https://github.com/userflow/userflow.js/compare/v2.12.1...HEAD
+[v2.12.0]: https://github.com/userflow/userflow.js/compare/v2.12.0...v2.12.1
 [v2.12.0]: https://github.com/userflow/userflow.js/compare/v2.11.0...v2.12.0
 [v2.11.0]: https://github.com/userflow/userflow.js/compare/v2.10.0...v2.11.0
 [v2.10.0]: https://github.com/userflow/userflow.js/compare/v2.9.0...v2.10.0
