@@ -7,7 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 
 ## [v2.12.1]
-    Demote log level from error to warn
+
+- Demote log level from error to warn
+- Patched the history API methods, such as pushState and replaceState, to trigger a custom userflow:pushstate and userflow:replacestate events whenever the state changes, improving our handling of these changes.
 
 ## [v2.12.0]
 
