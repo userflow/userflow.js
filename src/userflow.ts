@@ -207,35 +207,37 @@ interface Deferred {
 // empty object instead of `window`.
 var w: WindowWithUserflow = typeof window === 'undefined' ? ({} as any) : window
 var userflow = w.userflow
-const history = w.history
-
-// indicates if the history API's pushState and replaceState are patched with custom event emitters
-w.__userflowStatePatched = true
-
-// patch the history API's
-// pushState method to emit userflow:pushstate and
-// replaceState method to emit userflow:replacestate
-const originalPushState = history.pushState
-const originalReplaceState = history.replaceState
+var history = w.history
 
 function overrideHistoryMethods(method: () => void, eventName: string) {
   return function () {
-    const event = new CustomEvent(eventName)
-    const args = Array.prototype.slice.call(arguments)
-    const ret = method.apply(history, args as any)
+    var event = new CustomEvent(eventName)
+    var args = Array.prototype.slice.call(arguments)
+    var ret = method.apply(history, args as any)
     w.dispatchEvent(event)
     return ret
   }
 }
 
-history.pushState = overrideHistoryMethods(
-  originalPushState as any,
-  'userflow:pushstate'
-)
-history.replaceState = overrideHistoryMethods(
-  originalReplaceState as any,
-  'userflow:replacestate'
-)
+// patch the history API's
+// pushState method to emit userflow:pushstate and
+// replaceState method to emit userflow:replacestate
+if (history) {
+  // indicates if the history API's pushState and replaceState are patched with custom event emitters
+  w.__userflowStatePatched = true
+
+  var originalPushState = history.pushState
+  var originalReplaceState = history.replaceState
+
+  history.pushState = overrideHistoryMethods(
+    originalPushState as any,
+    'userflow:pushstate'
+  )
+  history.replaceState = overrideHistoryMethods(
+    originalReplaceState as any,
+    'userflow:replacestate'
+  )
+}
 
 if (!userflow) {
   //
