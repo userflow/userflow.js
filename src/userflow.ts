@@ -296,7 +296,7 @@ if (!userflow) {
   ) {
     userflow![method] = function () {
       var args = Array.prototype.slice.call(arguments)
-      userflow!.load()
+      userflow!.load().then(() => {}, () => {})
       q.push([method, null, args])
     } as any
   }
@@ -308,7 +308,7 @@ if (!userflow) {
   ) {
     userflow![method] = function () {
       var args = Array.prototype.slice.call(arguments)
-      userflow!.load()
+      userflow!.load().then(() => {}, () => {})
       var deferred: Deferred
       var promise = new Promise<void>(function (resolve, reject) {
         deferred = {resolve: resolve, reject: reject}
