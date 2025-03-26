@@ -129,6 +129,10 @@ export interface Userflow {
   setServerEndpoint(serverEndpoint: string | null | undefined): void
 
   disableEvalJs(): void
+
+  _getInitToken(): string | null
+
+  _getIdentifiedUser(): {externalId: string | null}
 }
 
 // Helper types for userflow.js API
@@ -376,6 +380,8 @@ if (!userflow) {
   // values and are not queued
   stubDefault('getResourceCenterState', null)
   stubDefault('isIdentified', false)
+  stubDefault('_getIdentifiedUser', null)
+  stubDefault('_getInitToken', null)
 }
 
 export default userflow!
