@@ -129,6 +129,8 @@ export interface Userflow {
   setServerEndpoint(serverEndpoint: string | null | undefined): void
 
   disableEvalJs(): void
+
+  debugger(): Promise<void>
 }
 
 // Helper types for userflow.js API
@@ -371,6 +373,7 @@ if (!userflow) {
   stubPromise('track')
   stubPromise('updateGroup')
   stubPromise('updateUser')
+  stubPromise('debugger')
 
   // Methods that synchronously return and can be stubbed with default return
   // values and are not queued
