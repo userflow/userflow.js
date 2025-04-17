@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.13.0]
+
+- Added `userflow.debugger()` to toggle the internal debugger for testing user flows.
+
 ## [v2.12.1]
 
 - Demote log level from error to warn
