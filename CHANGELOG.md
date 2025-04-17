@@ -113,8 +113,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Deprecated `IdentifyParams` type was removed. Use `Attributes` instead.
 - Deprecated `immediate: boolean` option was removed - no longer relevant.
 
-[unreleased]: https://github.com/userflow/userflow.js/compare/v2.12.1...HEAD
-[v2.12.0]: https://github.com/userflow/userflow.js/compare/v2.12.0...v2.12.1
+[unreleased]: https://github.com/userflow/userflow.js/compare/v2.13.0...HEAD
+[v2.13.0]: https://github.com/userflow/userflow.js/compare/v2.12.1...v2.13.0
+[v2.12.1]: https://github.com/userflow/userflow.js/compare/v2.12.0...v2.12.1
 [v2.12.0]: https://github.com/userflow/userflow.js/compare/v2.11.0...v2.12.0
 [v2.11.0]: https://github.com/userflow/userflow.js/compare/v2.10.0...v2.11.0
 [v2.10.0]: https://github.com/userflow/userflow.js/compare/v2.9.0...v2.10.0
