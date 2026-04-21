@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v2.14.0]
+
+### Fixed
+
+- Allow list values to be passed as event attribute values.
+
 ## [v2.13.0]
 
 - Added `userflow.debugger()` to toggle the internal debugger for testing user flows.
