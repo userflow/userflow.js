@@ -164,11 +164,11 @@ export interface GroupOptions {
 }
 
 export interface EventAttributes {
-  [name: string]: AttributeLiteral | EventAttributeChange
+  [name: string]: AttributeLiteralOrList | EventAttributeChange
 }
 
 interface EventAttributeChange {
-  set?: AttributeLiteral
+  set?: AttributeLiteralOrList
   data_type?: AttributeDataType
 }
 
